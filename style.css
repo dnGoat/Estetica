@@ -1,0 +1,172 @@
+/* Cabeçalho do meu projeto: logo, menu (nav) e botões (actions) */
+
+/* Variáveis de cores */
+:root {
+    --cor-fundo-site: #ffffff;
+    --cor-cabecalho: #e0dbe6;
+    --texto-principal: #131212;
+    --texto-secundario: #6e6e6e;
+    --detalhe-ouro: #06f706;
+    --detalhe-ouro-hover: #e02f2f;
+    --borda-suave: #f0ece6;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Cormorant Garamond", serif;
+    background-color: var(--cor-fundo-site);
+    color: var(--texto-principal);
+}
+
+/* Cabeçalho */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--cor-cabecalho);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid var(--borda-suave);
+}
+
+/* Container de alinhamento */
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+/* Menu */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--texto-secundario);
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.nav a:hover {
+    color: var(--detalhe-ouro);
+}
+
+/* Linha embaixo do link */
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--detalhe-ouro);
+    transition: width 0.3s ease;
+}
+
+/* A linha aparece no hover */
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Botões */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+/* Botão Entrar */
+.btn-entrar {
+    color: var(--detalhe-ouro);
+    border: 1px solid var(--detalhe-ouro);
+}
+
+.btn-entrar:hover {
+    background-color: var(--detalhe-ouro);
+    color: #ffffff;
+}
+
+/* Botão Cadastrar */
+.btn-cadastrar {
+    background-color: var(--detalhe-ouro);
+    color: #ffffff;
+}
+
+.btn-cadastrar:hover {
+    opacity: 0.85;
+}
+
+/* Menu hambúrguer */
+.hamburguer {
+    display: none;
+    font-size: 24px;
+    background: var(--cor-cabecalho);
+    border: #e02f2f;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+    .hamburguer {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .nav.ativo {
+        display: flex;
+    }
+
+    .actions {
+        display: none;
+    }
+
+    .header-inner {
+        flex-wrap: wrap;
+    }
+}
